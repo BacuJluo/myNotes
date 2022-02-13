@@ -1,21 +1,20 @@
 package com.example.notes;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-public class NotesFragment extends Fragment {
+public class NotesInfoFragment extends Fragment {
 
 
 
-    public static NotesFragment newInstance(String param1, String param2) {
-        NotesFragment fragment = new NotesFragment();
+    public static NotesInfoFragment newInstance(String param1, String param2) {
+        NotesInfoFragment fragment = new NotesInfoFragment();
         return fragment;
     }
 
@@ -23,7 +22,7 @@ public class NotesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notes, container, false);
+        return inflater.inflate(R.layout.fragment_notes_info, container, false);
     }
 
     @Override

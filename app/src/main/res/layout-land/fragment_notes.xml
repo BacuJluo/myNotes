@@ -4,12 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fish"
-    android:orientation="vertical"
     tools:context=".NotesFragment">
 
     <FrameLayout
-        android:id="@+id/myNotes"
-        android:layout_width="match_parent"
+        android:id="@+id/myNotesLandscapefirst"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/myNotesLandscapeSecond"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"/>
 
 </LinearLayout>
