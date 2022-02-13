@@ -4,18 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fish"
-    tools:context=".NotesFragment">
+    tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/myNotesLandscapefirst"
+        android:id="@+id/notes_list"
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
 
     <FrameLayout
-        android:id="@+id/myNotesLandscapeSecond"
+        android:id="@+id/notes_discription"
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
 
 </LinearLayout>

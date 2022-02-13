@@ -7,9 +7,16 @@
     android:orientation="vertical"
     tools:context=".NotesFragment">
 
-    <FrameLayout
-        android:id="@+id/myNotesInfo"
+    <TextView
+        android:id="@+id/fragment_notes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/notes_discription"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

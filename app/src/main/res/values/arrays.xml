@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noteOne"/>
+    <string name="note_one"/>
+    <string-array name="notes">
+        <item>Заметка1</item>
+        <item>Заметка2</item>
+        <item>Заметка3</item>
+        <item>Заметка4</item>
+        <item>Заметка5</item>
+    </string-array>
+    
+    <string-array name="note_discription">
+        <item>Описание1</item>
+        <item>Описание2</item>
+        <item>Описание3</item>
+        <item>Описание4</item>
+        <item>Описание5</item>
+    </string-array>
+
 </resources>
