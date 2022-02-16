@@ -14,7 +14,7 @@
 
 
     <FrameLayout
-        android:id="@+id/notes_discription_land_activity"
+        android:id="@+id/notes_discription_land"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

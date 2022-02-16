@@ -23,7 +23,7 @@ public class DescriptionsFragment extends Fragment {
         DescriptionsFragment fragment = new DescriptionsFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(KEY_NOTES, notes);
-        fragment.setArguments(bundle);//TODO разобраться, нужно ли это
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -43,40 +43,26 @@ public class DescriptionsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ;
         if (getArguments() != null) {
             notes = getArguments().getParcelable(KEY_NOTES);
         }
+
         TextView tv = view.findViewById(R.id.notes_discription);
-        initView(view);
-    }
-
-    private void initView(View view) {
         String[] note = getResources().getStringArray(R.array.note_name);
-        for (int i = 0; i< note.length; i++){
-            String noteName = note[i];
-            TextView textView = new TextView(getContext());
-            textView.setTextSize(35f);
-            textView.setText(noteName);
-            ((LinearLayout) view).addView(textView);
-            final int finalI = i;
-            textView.setOnClickListener(view1 -> {
-                notes = new Notes(finalI);
-                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    showLand();
-                } else {
-                    showPort();
-                }
-            });
-        }
+        tv.setText(note[notes.getIndex()]);
+
     }
 
-    private void showLand() {
-        NotesFragment notesFragment = NotesFragment.newInstance();
-        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.notes_discription_land, notesFragment).addToBackStack("").commit();
-    }
 
-    private void showPort() {
-        NotesFragment notesFragment = NotesFragment.newInstance();
-        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.notes_list, notesFragment).addToBackStack("").commit();
-    }
+
+//    private void showLand() {
+//        NotesFragment notesFragment = NotesFragment.newInstance();
+//        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.notes_discription_land_activity, notesFragment).addToBackStack("").commit();
+//    }
+//
+//    private void showPort() {
+//        NotesFragment notesFragment = NotesFragment.newInstance();
+//        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription, notesFragment).addToBackStack("").commit();
+//    }
 }

@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            //NotesFragment notesFragment = new NotesFragment();
             NotesFragment notesFragment = NotesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, notesFragment).commit();
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){

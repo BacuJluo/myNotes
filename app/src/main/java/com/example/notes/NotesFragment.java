@@ -25,6 +25,8 @@ public class NotesFragment extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,7 +68,6 @@ public class NotesFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                      notesCurrent = new Notes(fi);
-//                    shouldShowRequestPermissionRationale(notes);
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                         showLand();
                     }else{
@@ -81,7 +82,7 @@ public class NotesFragment extends Fragment {
 
     private void showLand() {
         DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(notesCurrent);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land_activity, descriptionsFragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land, descriptionsFragment).commit();
     }
 
     private void showPort() {
