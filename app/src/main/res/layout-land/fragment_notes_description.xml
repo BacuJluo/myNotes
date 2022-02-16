@@ -8,8 +8,7 @@
     tools:context=".NotesFragment">
 
     <TextView
-        android:id="@+id/notes_discription"
-        android:layout_gravity="center"
+        android:id="@+id/notes_discription_land"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

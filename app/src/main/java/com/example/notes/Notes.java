@@ -5,16 +5,14 @@ import android.os.Parcelable;
 
 public class Notes implements Parcelable {
 
-    //private
-
     private int index;
 
     protected Notes(Parcel in) {
         index = in.readInt();
     }
 
-    public Notes(int i) {
-        index = i;
+    public Notes(int finalI) {
+        this.index=finalI;
     }
 
     @Override
@@ -46,6 +44,12 @@ public class Notes implements Parcelable {
     public void setIndex(int index) {
         this.index = index;
     }
+
+
+
+
+
+
 }
 
 

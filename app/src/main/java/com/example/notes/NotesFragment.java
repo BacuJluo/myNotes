@@ -1,7 +1,7 @@
 package com.example.notes;
 
-import static com.example.notes.DescriptionsFragment.KEY_NOTES;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,11 +20,8 @@ public class NotesFragment extends Fragment {
     public static final String PLANS_FOR_THE_WEEK = "plans";
     private Notes notesCurrent;
 
-    public static NotesFragment newInstance(Notes notes) {
+    public static NotesFragment newInstance() {
         NotesFragment fragment = new NotesFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(PLANS_FOR_THE_WEEK, notes);
-        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -36,34 +33,64 @@ public class NotesFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(PLANS_FOR_THE_WEEK, notesCurrent);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
             notesCurrent = getArguments().getParcelable(PLANS_FOR_THE_WEEK);
+        }else{
+             notesCurrent = new Notes(0);
+        }if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            showLand();
         }
         initList(view);
     }
 
+
+
     private void initList(View view) {
-        LinearLayout linearLayout = (LinearLayout) view;
-        String[] notes = getResources().getStringArray(R.array.note_discription);
+        String[] notes = getResources().getStringArray(R.array.notes);
         for ( int i = 0; i < notes.length; i++ ){
             String note = notes[i];
             TextView tv = new TextView(getContext());
             tv.setText(note);
             tv.setTextSize(30f);
-            linearLayout.addView(tv);
+            ((LinearLayout) view).addView(tv);
             final int fi = i;
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    notesCurrent = new Notes(fi);
-                    shouldShowRequestPermissionRationale(notesCurrent);
+                     notesCurrent = new Notes(fi);
+//                    shouldShowRequestPermissionRationale(notes);
+                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        showLand();
+                    }else{
+                        showPort();
+                    }
+
                 }
 
-                private void shouldShowRequestPermissionRationale(Notes currentNotes) {
-                }
             });
         }
+    }
+
+    private void showLand() {
+        DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(notesCurrent);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land_activity, descriptionsFragment).commit();
+    }
+
+    private void showPort() {
+        DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(notesCurrent);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, descriptionsFragment).addToBackStack("").commit();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 }

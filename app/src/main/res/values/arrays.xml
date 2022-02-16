@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="note_one"/>
     <string-array name="notes">
-        <item>Заметка1</item>
-        <item>Заметка2</item>
-        <item>Заметка3</item>
-        <item>Заметка4</item>
-        <item>Заметка5</item>
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
     </string-array>
-    
-    <string-array name="note_discription">
-        <item>Описание1</item>
-        <item>Описание2</item>
-        <item>Описание3</item>
-        <item>Описание4</item>
-        <item>Описание5</item>
+
+    <string-array name="note_name">
+        <item>Сделать ДЗ 6</item>
+        <item>Прогуляться по улице</item>
+        <item>Покормить собаку</item>
+        <item>Убрать квартиру</item>
+        <item>Вынести мусор</item>
+        <item>Купить продукты</item>
+        <item>Приготовить что-нибудь</item>
     </string-array>
 
 </resources>
