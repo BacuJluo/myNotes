@@ -16,13 +16,12 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             NotesFragment notesFragment = NotesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, notesFragment).commit();
-            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Notes defaultNotes = new Notes(0);
                 DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(defaultNotes);
-                getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land,descriptionsFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land, descriptionsFragment).commit();
             }
-            }
-
+        }
     }
 
     @Override
