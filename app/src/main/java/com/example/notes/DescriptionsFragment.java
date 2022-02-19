@@ -52,17 +52,16 @@ public class DescriptionsFragment extends Fragment {
         String[] note = getResources().getStringArray(R.array.note_name);
         tv.setText(note[notes.getIndex()]);
 
+        view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //вызываем popBackStack() (закрыть фрагмент) вместо onBackPressed()
+                requireActivity().getSupportFragmentManager().popBackStack();
+
+            }
+        });
+
+
     }
 
-
-
-//    private void showLand() {
-//        NotesFragment notesFragment = NotesFragment.newInstance();
-//        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.notes_discription_land_activity, notesFragment).addToBackStack("").commit();
-//    }
-//
-//    private void showPort() {
-//        NotesFragment notesFragment = NotesFragment.newInstance();
-//        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription, notesFragment).addToBackStack("").commit();
-//    }
 }

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment backStackFragment = getSupportFragmentManager()
                 .findFragmentById(R.id.notes_list);
         if (backStackFragment != null && backStackFragment instanceof DescriptionsFragment) {
-            onBackPressed();
+            getSupportFragmentManager().popBackStack();
         }
     }
 

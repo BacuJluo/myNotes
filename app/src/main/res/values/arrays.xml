@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="notes">
-        <item>Понедельник</item>
-        <item>Вторник</item>
-        <item>Среда</item>
-        <item>Четверг</item>
-        <item>Пятница</item>
-        <item>Суббота</item>
-        <item>Воскресенье</item>
+        <item>Заметка первая</item>
+        <item>Заметка вторая</item>
+        <item>Заметка третья</item>
+        <item>Заметка четвертая</item>
+        <item>Заметка пятая</item>
+        <item>Заметка шестая</item>
+        <item>Заметка седьмая</item>
     </string-array>
 
     <string-array name="note_name">
