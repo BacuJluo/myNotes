@@ -35,15 +35,15 @@ public class DescriptionsFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_fragment_descriptions,menu);
+        inflater.inflate(R.menu.menu_fragment_descriptions,menu);//Через инфлэйтер надули меню, но попросили ниже убрать не нужный нам пункт
         menu.findItem(R.id.action_about_fragment).setVisible(false);
-        super.onCreateOptionsMenu(menu, inflater);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+            // Ищем по Id свой пункт в меню, и работаем с ним
             case (R.id.action_toast):{
                 Toast.makeText(requireContext(),"Toast", Toast.LENGTH_LONG).show();
                 return true;
@@ -69,10 +69,11 @@ public class DescriptionsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setHasOptionsMenu(true); // !!!!!У фрагмента есть свое меню
+        setHasOptionsMenu(true); // !!!!!У фрагмента есть свое меню (комментарий урока)
         if (getArguments() != null) {
             notes = getArguments().getParcelable(KEY_NOTES);
         }
+        //Вызываем ФрагментМенеджер ребенка, и открываем его фрагмент.
         getChildFragmentManager().beginTransaction().replace(R.id.container_child,DescriptionsChildFragment.newInstance(notes)).addToBackStack("").commit();
 
 

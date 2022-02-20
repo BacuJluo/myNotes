@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 public class FragmentMainActivity extends AppCompatActivity {
@@ -29,6 +30,9 @@ public class FragmentMainActivity extends AppCompatActivity {
                         .commit();
             }
         }
+        //Установили свой Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
