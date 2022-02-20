@@ -47,7 +47,6 @@ public class FragmentMainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case (R.id.action_about_fragment):{
                 getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, new AboutFragment()).addToBackStack("").commit();
-
                 return true;
             }
             case (R.id.action_exit):{

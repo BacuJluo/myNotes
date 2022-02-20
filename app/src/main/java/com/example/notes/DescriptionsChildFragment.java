@@ -2,10 +2,14 @@ package com.example.notes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,13 +59,39 @@ public class DescriptionsChildFragment extends Fragment {
             public void onClick(View v) {
                 //вызываем popBackStack() (закрыть фрагмент) вместо onBackPressed()
                 requireActivity().getSupportFragmentManager().popBackStack();
-
                 //getParentFragmentManager().popBackStack();
                 //TODO можно использовать любой из этих методов выхода, но лучше первый..
             }
         });
 
-
+        //Создание своего PopupMenu
+        tv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(requireContext(),v);
+                requireActivity().getMenuInflater().inflate(R.menu.popup,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            // Ищем по Id свой пункт в меню, и работаем с ним
+                            case (R.id.action_popup_clear):{
+                                tv.setAlpha(0);
+                                return true;
+                            }
+                            case (R.id.action_popup_exit):{
+                                requireActivity().finish();
+                                return true;
+                            }
+//
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+                return false;
+            }
+        });
 
     }
 

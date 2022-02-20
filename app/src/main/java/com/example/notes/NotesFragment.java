@@ -4,6 +4,8 @@ package com.example.notes;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -49,9 +51,14 @@ public class NotesFragment extends Fragment {
             showLand();
         }
         initList(view);
+        setHasOptionsMenu(true);
     }
 
-
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_fragment_descriptions,menu);
+        menu.findItem(R.id.action_toast);
+    }
 
     private void initList(View view) {
         String[] notes = getResources().getStringArray(R.array.notes);
