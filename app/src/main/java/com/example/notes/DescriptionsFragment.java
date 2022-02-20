@@ -47,21 +47,11 @@ public class DescriptionsFragment extends Fragment {
         if (getArguments() != null) {
             notes = getArguments().getParcelable(KEY_NOTES);
         }
-
-        TextView tv = view.findViewById(R.id.notes_discription);
-        String[] note = getResources().getStringArray(R.array.note_name);
-        tv.setText(note[notes.getIndex()]);
-
-        view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //вызываем popBackStack() (закрыть фрагмент) вместо onBackPressed()
-                requireActivity().getSupportFragmentManager().popBackStack();
-
-            }
-        });
+        getChildFragmentManager().beginTransaction().replace(R.id.container_child,DescriptionsChildFragment.newInstance(notes)).addToBackStack("").commit();
 
 
     }
+
+
 
 }
