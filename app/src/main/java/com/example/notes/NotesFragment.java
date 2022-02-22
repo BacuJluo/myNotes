@@ -52,6 +52,7 @@ public class NotesFragment extends Fragment {
         }
         initList(view);
         setHasOptionsMenu(true);
+
     }
 
     @Override
