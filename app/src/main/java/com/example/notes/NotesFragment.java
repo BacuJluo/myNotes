@@ -88,12 +88,12 @@ public class NotesFragment extends Fragment {
 
     private void showLand() {
         DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(notesCurrent);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land, descriptionsFragment).commit();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_discription_land, descriptionsFragment).commit();
     }
 
     private void showPort() {
         DescriptionsFragment descriptionsFragment = DescriptionsFragment.newInstance(notesCurrent);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, descriptionsFragment).addToBackStack("").commit();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes_list, descriptionsFragment).addToBackStack("").commit();
     }
 
     @Override
