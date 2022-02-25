@@ -15,6 +15,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
 
+    private OnDialogListener dialogListener;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        dialogListener = ((FragmentMainActivity) getActivity());
         initView(view);
 
     }
@@ -32,8 +35,10 @@ public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
     void initView(View view){
         view.findViewById(R.id.button_custom_view).setOnClickListener(v -> {
             EditText editText = view.findViewById(R.id.editText_custom_view);
-            ((FragmentMainActivity) getActivity()).onDialogResult(editText.getText().toString());
+            dialogListener.onDialogResult(editText.getText().toString());
             dismiss();
         });
     }
+
+
 }

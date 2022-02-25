@@ -18,8 +18,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
+import com.my.lesson9.LessonNinthFragments;
+import com.my.lesson9.OnDialogListener;
 
-public class FragmentMainActivity extends AppCompatActivity {
+
+public class FragmentMainActivity extends AppCompatActivity implements OnDialogListener {
 
     private static final String CHANEL_ID = "1";
 
@@ -60,6 +63,8 @@ public class FragmentMainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -1,5 +1,6 @@
 package com.example.notes;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class DescriptionsChildFragment extends Fragment {
 
@@ -76,14 +79,14 @@ public class DescriptionsChildFragment extends Fragment {
                         switch (item.getItemId()){
                             // Ищем по Id свой пункт в меню, и работаем с ним
                             case (R.id.action_popup_clear):{
-                                tv.setAlpha(0);
+                                //TODO доделать очистку заметки
+                                 showAlertDialog(tv);
                                 return true;
                             }
                             case (R.id.action_popup_exit):{
                                 requireActivity().finish();
                                 return true;
                             }
-//
                         }
                         return false;
                     }
@@ -92,7 +95,26 @@ public class DescriptionsChildFragment extends Fragment {
                 return false;
             }
         });
+    }
 
+    void showAlertDialog(TextView tv) {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Очистить")
+                .setMessage("Вы действительно хотите очистить заметку?")
+                .setPositiveButton("Да", (dialog, which) -> {
+                    tv.setAlpha(0);
+                })
+                .setNegativeButton("Нет", (dialog, which) -> {
+                    showSnackBar(tv);
+                }).show();
+    }
+
+//    void showToast(String message){
+//        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
+//    }
+
+    void showSnackBar(View view){
+        Snackbar.make(view, "Можно очистить заметку", Snackbar.LENGTH_LONG).show();
     }
 
 

@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -62,7 +63,46 @@ public class LessonNinthFragments extends Fragment {
         view.findViewById(R.id.btnAlertDialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
         view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
         view.findViewById(R.id.btnPushNotification).setOnClickListener(v -> showPushNotification());
+        view.findViewById(R.id.btnAlertDialogCustomList).setOnClickListener(v -> showAlertDialogCustomList());
+        view.findViewById(R.id.btnAlertDialogCustomListSingle).setOnClickListener(v -> showAlertDialogCustomListSingle());
+        view.findViewById(R.id.btnAlertDialogCustomListMulti).setOnClickListener(v -> showAlertDialogCustomListMulti());
 
+    }
+
+    private void showAlertDialogCustomListMulti() {
+        String[] notes = getResources().getStringArray(R.array.notes);
+        boolean[] choosen = {false,false,false,false,false,false,false};//FIXME добавить если что new boolean[]
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setMultiChoiceItems(notes, choosen, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        choosen[which] = isChecked;
+                        showToast("Вы выбрали "+notes[which]+" ");
+                    }
+                })
+                .show();
+    }
+
+    private void showAlertDialogCustomListSingle() {
+        String[] notes = getResources().getStringArray(R.array.notes);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setSingleChoiceItems(notes, -1, (dialog, which) -> {
+                    showToast("Вы выбрали "+notes[which]);
+                })
+                .show();
+        
+    }
+
+    private void showAlertDialogCustomList() {
+        String[] notes = getResources().getStringArray(R.array.notes);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setItems(notes, (dialog, which) -> {
+                    showToast("Вы выбрали "+notes[which]);
+                })
+                .show();
     }
 
     public final String CHANEL_ID = "1";

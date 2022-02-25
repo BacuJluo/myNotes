@@ -24,4 +24,8 @@
     <string name="dialog_fragment">Dialog Fragment</string>
     <string name="dialog_fragment_custom">dialog fragment custom</string>
     <string name="bottom_sheet_dialog_fragment">BottomSheetDialogFragment</string>
+    <string name="show_alertdialogcustomlist">show AlertDialogCustomList</string>
+    <string name="pushnotification">PushNotification</string>
+    <string name="alertdialogcustomlistmulti">AlertDialogCustomListMulti</string>
+    <string name="alertdialogcustomlistsingle">AlertDialogCustomListSingle</string>
 </resources>
